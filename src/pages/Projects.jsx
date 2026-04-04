@@ -38,7 +38,7 @@ const PROJECTS = [
   desc: 'A modern and responsive portfolio built with React and Framer Motion, showcasing projects, skills, and achievements with smooth animations and interactive UI.',
   ss: '/portfolio.jpg',
   tech: ['React', 'Framer Motion', 'Tailwind CSS'],
-  live: 'https://3-d-portfolio-pratik.vercel.app/',
+  live: 'https://portfollio-lime-zeta.vercel.app/',
   code: '#'
   },
   {
@@ -59,7 +59,7 @@ const PROJECTS = [
   ss: '/ProfileX.png',
   tech: ['Power BI', 'Data Visualization', 'HTML', 'CSS', 'JavaScript'],
   live: 'https://69babc8d5997989746045b14--velvety-kataifi-9441c2.netlify.app/',
-  code: 'https://github.com/kunjdesai/ProfileX'
+  code: 'https://github.com/Pratik-verma-74/PowerBi-mini-version'
 }
   
 ]

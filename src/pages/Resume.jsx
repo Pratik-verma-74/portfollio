@@ -62,7 +62,7 @@ export default function Resume() {
               📍 Madhepura, Bihar, India
             </p>
             <p style={{ margin: "4px 0", fontSize: 14, color: "#aaa" }}>
-              ✉️ pratikverma153@gmail.com | 📞 +91 7463053829
+              ✉️ pratikverma153@gmail.com | ✉️ pratikverma025@gmail.com
             </p>
           </div>
 
@@ -132,7 +132,7 @@ export default function Resume() {
         >
           <h4 style={{ fontSize: 20, color: "#00b4ff", marginBottom: 12 }}>💼 Projects</h4>
           <ul style={{ listStyle: "none", padding: 0, margin: 0, lineHeight: 1.8 }}>
-            <li>1️⃣VYRON – Smart Bilingual Voice Assistant (Hindi + English)</li>
+            <li>1️⃣M.A.S.S – Multi agent smart system (Hindi + English)</li>
             <li>2️⃣ TuneNest – Modern Music Player</li>
             <li>3️⃣ DivyaKatha – Stories of the Four Yugas</li>
             <li>4️⃣ CyberCafeDeals – Free Learning & AI Tools Hub</li>

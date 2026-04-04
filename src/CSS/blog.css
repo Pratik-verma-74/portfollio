@@ -1,97 +1,147 @@
+/* ===========================
+   BLOG SECTION - RESPONSIVE
+   =========================== */
+
 .blog-section {
+  min-height: 100vh;
   width: 100%;
-  padding: 3rem 8%;
-  color: white;
-  text-align: center;
+  padding: 3rem 2rem;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .blog-title {
-  font-size: 2rem;
-  margin-bottom: 0.2rem; /* less top margin */
+  font-size: clamp(1.5rem, 5vw, 2.2rem);
   color: #fff;
+  text-align: center;
+  margin-bottom: 0.4rem;
 }
 
 .blog-sub {
-  color: #aaa;
+  font-size: clamp(0.85rem, 2.5vw, 1rem);
+  color: rgba(255, 255, 255, 0.6);
+  text-align: center;
   margin-bottom: 2rem;
-  font-size: 1rem;
 }
 
 .blog-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-  gap: 2rem;
-  justify-items: center;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.4rem;
+  width: 100%;
+  max-width: 1100px;
 }
 
 .blog-post {
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 16px;
-  padding: 1.8rem;
-  width: 100%;
-  text-align: left;
-  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  padding: 1.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  box-sizing: border-box;
 }
 
 .post-title {
-  font-size: 1.2rem;
+  font-size: clamp(0.95rem, 3vw, 1.15rem);
   color: #fff;
-  margin-bottom: 0.8rem;
+  margin: 0;
 }
 
 .post-text {
-  color: #ccc;
-  font-size: 0.95rem;
+  font-size: clamp(0.82rem, 2.5vw, 0.95rem);
+  color: rgba(255, 255, 255, 0.7);
   line-height: 1.6;
-  margin-bottom: 1.5rem;
+  margin: 0;
+  flex: 1;
 }
 
-/* vote buttons */
 .vote-container {
   display: flex;
-  gap: 1rem;
-  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 0.8rem;
+  flex-wrap: wrap;
 }
 
 .vote-btn-circle {
-  background: rgba(255, 255, 255, 0.05);
-  border: none;
-  border-radius: 50%;
-  padding: 0.8rem;
-  color: #ddd;
   display: flex;
   align-items: center;
-  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.45rem 1rem;
+  border-radius: 30px;
+  border: 1.5px solid rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.05);
+  color: rgba(255, 255, 255, 0.75);
   cursor: pointer;
-  transition: all 0.25s ease;
-  position: relative;
-  box-shadow: 0 0 8px rgba(255,255,255,0.05);
-}
-
-.vote-btn-circle:hover {
-  background: rgba(255, 255, 255, 0.1);
-}
-
-.vote-btn-circle.active.agree {
-  background: rgba(0, 255, 130, 0.15);
-  color: #00ff82;
-  box-shadow: 0 0 10px rgba(0, 255, 130, 0.4);
-}
-
-.vote-btn-circle.active.disagree {
-  background: rgba(255, 0, 70, 0.15);
-  color: #ff0050;
-  box-shadow: 0 0 10px rgba(255, 0, 70, 0.4);
+  font-size: clamp(0.78rem, 2vw, 0.88rem);
+  transition: all 0.2s;
+  min-width: 60px;
+  justify-content: center;
 }
 
 .vote-btn-circle:disabled {
-  opacity: 0.6;
   cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.vote-btn-circle.agree.active {
+  background: rgba(0, 200, 100, 0.15);
+  border-color: rgba(0, 200, 100, 0.5);
+  color: #00c864;
+}
+
+.vote-btn-circle.disagree.active {
+  background: rgba(255, 60, 60, 0.15);
+  border-color: rgba(255, 60, 60, 0.5);
+  color: #ff4040;
 }
 
 .vote-count {
-  position: absolute;
-  bottom: -0.5rem;
-  font-size: 0.7rem;
-  color: #aaa;
+  font-weight: 600;
+  min-width: 16px;
+  text-align: center;
+}
+
+/* =========================================
+   TABLET  (481px – 768px)
+   ========================================= */
+@media (max-width: 768px) {
+  .blog-section {
+    padding: 2rem 1.2rem;
+  }
+
+  .blog-grid {
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1rem;
+  }
+}
+
+/* =========================================
+   MOBILE  (≤ 480px)
+   ========================================= */
+@media (max-width: 480px) {
+  .blog-section {
+    padding: 1.5rem 1rem;
+  }
+
+  .blog-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .blog-post {
+    padding: 1.1rem;
+  }
+
+  .vote-container {
+    gap: 0.5rem;
+  }
+
+  .vote-btn-circle {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.78rem;
+  }
 }
