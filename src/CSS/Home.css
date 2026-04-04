@@ -7,7 +7,7 @@
   gap: 3rem;
   align-items: center;
   padding: 3rem 2rem 1rem;
-  background: radial-gradient(circle at 30% 30%, rgba(0,255,200,0.08), transparent 80%);
+  background: radial-gradient(circle at 30% 30%, rgba(34, 207, 169, 0.08), transparent 80%);
   color: #fff;
 }
 
