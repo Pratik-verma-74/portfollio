@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import emailjs from "emailjs-com";
 
 import githubLogo from "../../public/github.png";
 import linkedinLogo from "../../public/linkedin.png";
@@ -40,30 +39,18 @@ export default function Contact() {
       return;
     }
 
-    setStatus("Sending...");
+    // Construct mailto link
+    const mailtoLink = `mailto:pratikverma153@gmail.com?subject=${encodeURIComponent(
+      form.subject
+    )}&body=${encodeURIComponent(
+      `Name: ${form.name}\nContact Info: ${form.contact}\n\nMessage:\n${form.message}`
+    )}`;
 
-    emailjs
-      .send(
-        import.meta.env.VITE_EMAILJS_SERVICE_ID,
-        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-        {
-          from_name: form.name,
-          contact_info: form.contact,
-          subject: form.subject,
-          message: form.message,
-        },
-        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
-      )
-      .then(
-        () => {
-          setStatus("✅ Message sent successfully!");
-          setForm({ name: "", contact: "", subject: "", message: "" });
-        },
-        (error) => {
-          console.error("FAILED...", error);
-          setStatus("❌ Failed to send. Try again later.");
-        }
-      );
+    // Open mail client
+    window.location.href = mailtoLink;
+
+    setStatus("✅ Email client opened!");
+    setForm({ name: "", contact: "", subject: "", message: "" });
   };
 
   const quickLinks = [
