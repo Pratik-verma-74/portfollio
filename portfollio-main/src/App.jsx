@@ -1,7 +1,10 @@
 import React from 'react'
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, useLocation } from 'react-router-dom'
+import { AnimatePresence } from 'framer-motion'
 import Navbar       from './components/Navbar'
 import Footer       from './pages/Footer'
+import CustomCursor from './components/CustomCursor'
+import PageWrapper  from './components/PageWrapper'
 import Home         from './pages/Home'
 import Projects     from './pages/Projects'
 import Gallery      from './pages/Gallery'
@@ -15,23 +18,30 @@ import SkillNetwork from './pages/Skills'
 import './index.css'
 
 export default function App() {
+  const location = useLocation();
+
   return (
     <div className="app">
+      {/* Global Neon Cursor Overlay */}
+      <CustomCursor />
+      
       <Navbar />
 
-      <main style={{ flex: 1 }}>
-        <Routes>
-          <Route path="/"            element={<Home />} />
-          <Route path="/projects"    element={<Projects />} />
-          <Route path="/gallery"     element={<Gallery />} />
-          <Route path="/skills"      element={<SkillNetwork />} />
-          <Route path="/certificates"element={<Certificates />} />
-          <Route path="/blog"        element={<Blog />} />
-          <Route path="/resume"      element={<Resume />} />
-          <Route path="/about"       element={<About />} />
-          <Route path="/contact"     element={<Contact />} />
-          <Route path="*"            element={<NotFound />} />
-        </Routes>
+      <main style={{ flex: 1, position: 'relative' }}>
+        <AnimatePresence mode="wait">
+          <Routes location={location} key={location.pathname}>
+            <Route path="/"            element={<PageWrapper><Home /></PageWrapper>} />
+            <Route path="/projects"    element={<PageWrapper><Projects /></PageWrapper>} />
+            <Route path="/gallery"     element={<PageWrapper><Gallery /></PageWrapper>} />
+            <Route path="/skills"      element={<PageWrapper><SkillNetwork /></PageWrapper>} />
+            <Route path="/certificates"element={<PageWrapper><Certificates /></PageWrapper>} />
+            <Route path="/blog"        element={<PageWrapper><Blog /></PageWrapper>} />
+            <Route path="/resume"      element={<PageWrapper><Resume /></PageWrapper>} />
+            <Route path="/about"       element={<PageWrapper><About /></PageWrapper>} />
+            <Route path="/contact"     element={<PageWrapper><Contact /></PageWrapper>} />
+            <Route path="*"            element={<PageWrapper><NotFound /></PageWrapper>} />
+          </Routes>
+        </AnimatePresence>
       </main>
 
       <Footer />
