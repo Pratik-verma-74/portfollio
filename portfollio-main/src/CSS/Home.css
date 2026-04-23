@@ -1,0 +1,183 @@
+/* 🏠 Home Section Styling */
+.home-section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem 2rem;
+  background: radial-gradient(circle at top right, #0a0a0a, #000);
+  color: #fff;
+  overflow: hidden;
+}
+
+.home-top {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4rem;
+  width: 100%;
+  max-width: 1200px;
+}
+
+/* 🖼️ Photo & Ring Styling */
+.photo-container {
+  position: relative;
+  width: 320px;
+  height: 320px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.photo-ring {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 2px dashed var(--accent);
+  border-radius: 50%;
+  box-shadow: 0 0 25px var(--accent);
+}
+
+.photo-frame {
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid #111;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.8);
+  background: #111;
+  z-index: 2;
+}
+
+.profile-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 📝 Info Section Styling */
+.home-info {
+  flex: 1;
+  max-width: 600px;
+}
+
+.home-title {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+}
+
+.home-name {
+  background: linear-gradient(90deg, var(--accent), var(--accent-2), var(--accent));
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.typing-effect {
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid var(--accent);
+  width: 100%;
+  animation: typing 3.5s steps(40, end), blink 0.75s step-end infinite;
+  font-family: monospace;
+  font-size: 1.2rem;
+  color: var(--accent);
+  margin-bottom: 1.5rem;
+}
+
+/* 🏷️ Profession Tags Styling */
+.profession-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-bottom: 2rem;
+}
+
+.profession-tag {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 0.5rem 1.2rem;
+  border-radius: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 0.9rem;
+  color: #ccc;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* 🗂️ Info Cards Styling */
+.info-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.2rem;
+}
+
+.info-card {
+  background: rgba(255, 255, 255, 0.03);
+  padding: 1rem;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all 0.3s ease;
+}
+
+.info-card strong {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--accent);
+  margin-bottom: 0.3rem;
+}
+
+.info-card p {
+  font-size: 0.9rem;
+  color: #bbb;
+}
+
+/* 🔗 Quick Links Styling */
+.quick-links {
+  margin-top: 5rem;
+  text-align: center;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.quick-links-title {
+  font-size: 1.2rem;
+  color: var(--accent, #00e5ff);
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-weight: 600;
+  text-shadow: 0 0 10px rgba(0, 229, 255, 0.3);
+}
+
+.quick-links-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2.5rem;
+  background: rgba(255, 255, 255, 0.02);
+  padding: 1.5rem 3rem;
+  border-radius: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+}
+
+.quick-link-img {
+  width: 42px;
+  height: 42px;
+  filter: grayscale(1) opacity(0.7);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.quick-link-img:hover {
+  filter: grayscale(0) opacity(1) drop-shadow(0 0 15px var(--accent, #00e5ff));
+  transform: scale(1.25) translateY(-5px);
+}

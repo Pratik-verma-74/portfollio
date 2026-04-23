@@ -1,0 +1,88 @@
+/* 🧘 About Me Section Styling */
+.about-container {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at top, #0d0d0d, #000);
+  color: white;
+  padding: 2rem 1rem;
+  box-sizing: border-box;
+}
+
+.aboutme-card {
+  width: 100%;
+  max-width: 1100px;
+  text-align: left;
+  margin-top: 1rem;
+  line-height: 1.8;
+  background: rgba(255,255,255,0.04);
+  padding: 2.5rem 2.5rem;
+  border-radius: 18px;
+  box-shadow: 0 0 25px rgba(0,255,200,0.08);
+  backdrop-filter: blur(10px);
+  box-sizing: border-box;
+}
+
+.aboutme-title {
+  font-size: clamp(1.3rem, 4vw, 1.9rem);
+  margin-bottom: 1.2rem;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.aboutme-desc {
+  font-size: clamp(0.95rem, 2.5vw, 1.1rem);
+  color: rgba(255,255,255,0.85);
+  margin-bottom: 1rem;
+}
+
+.aboutme-edu-title {
+  font-size: clamp(1.2rem, 3.5vw, 1.6rem);
+  margin-bottom: 1.5rem;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.aboutme-edu-card {
+  background: rgba(255,255,255,0.05);
+  border-radius: 14px;
+  padding: 1.4rem 1.8rem;
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 0 15px rgba(0,255,200,0.05);
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+}
+
+.aboutme-edu-icon {
+  flex-shrink: 0;
+}
+
+.aboutme-edu-heading {
+  color: var(--accent);
+  margin-bottom: 0.4rem;
+  font-size: clamp(1rem, 3vw, 1.2rem);
+}
+
+@media (max-width: 768px) {
+  .aboutme-card { padding: 2rem 1.5rem !important; }
+  .aboutme-title { font-size: 1.5rem !important; }
+  .aboutme-edu-title { font-size: 1.3rem !important; }
+  .aboutme-edu-card { flex-direction: column !important; align-items: flex-start !important; gap: 0.8rem !important; padding: 1.2rem 1.2rem !important; }
+  .aboutme-edu-icon { display: flex; flex-shrink: 0; }
+  .aboutme-desc { font-size: 1rem !important; }
+}
+
+@media (max-width: 480px) {
+  .aboutme-card { padding: 1.4rem 1rem !important; }
+  .aboutme-title { font-size: 1.3rem !important; }
+  .aboutme-edu-title { font-size: 1.15rem !important; }
+  .aboutme-edu-card { padding: 1rem !important; }
+  .aboutme-edu-heading { font-size: 1rem !important; }
+}
