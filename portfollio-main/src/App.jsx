@@ -5,6 +5,7 @@ import Navbar       from './components/Navbar'
 import Footer       from './pages/Footer'
 import CustomCursor from './components/CustomCursor'
 import PageWrapper  from './components/PageWrapper'
+import Chatbot      from './components/Chatbot'
 import Home         from './pages/Home'
 import Projects     from './pages/Projects'
 import Gallery      from './pages/Gallery'
@@ -24,6 +25,9 @@ export default function App() {
     <div className="app">
       {/* Global Neon Cursor Overlay */}
       <CustomCursor />
+      
+      {/* Floating Chatbot */}
+      <Chatbot />
       
       <Navbar />
 

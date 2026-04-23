@@ -11,6 +11,7 @@ const links = [
   { label: "Resume",       to: "/resume" },
   { label: "About Me",     to: "/about" },
   { label: "Gallery",      to: "/gallery" },
+  { label: "Contact",      to: "/contact" },
 ];
 
 export default function Navbar() {
