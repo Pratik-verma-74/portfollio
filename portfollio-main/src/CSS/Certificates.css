@@ -104,13 +104,13 @@
 }
 
 @media (max-width: 768px) {
-  .certs-section { padding: 1.5rem 1rem; }
-  .certs-inner { padding: 1.4rem; }
+  .certs-section { padding: 3rem 1rem; }
+  .certs-inner { padding: 1.5rem; }
   .cert-grid { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
 }
 @media (max-width: 480px) {
-  .certs-section { padding: 1rem 0.75rem; }
-  .certs-inner { padding: 1rem; border-radius: 10px; }
+  .certs-section { padding: 2.5rem 1rem; }
+  .certs-inner { padding: 1.2rem; border-radius: 10px; }
   .cert-grid { grid-template-columns: 1fr; }
   .cert-img { height: 180px; }
 }

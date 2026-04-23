@@ -122,43 +122,57 @@ export default function Navbar() {
       {/* ── Mobile Drawer ── */}
       <AnimatePresence>
         {isOpen && showButton && (
-          <motion.div
-            className="nav-mobile-overlay"
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.22 }}
-          >
-            {/* Close button */}
-            <button
-              className="nav-mobile-close"
+          <>
+            {/* Dark Backdrop */}
+            <motion.div
+              className="nav-backdrop"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
               onClick={() => setIsOpen(false)}
-              aria-label="Close menu"
+            />
+            
+            {/* Right Side Drawer */}
+            <motion.div
+              className="nav-drawer"
+              initial={{ x: "100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "100%" }}
+              transition={{ type: "tween", ease: "easeInOut", duration: 0.3 }}
             >
-              ✕
-            </button>
-
-            {/* Links */}
-            {links.map((l, i) => (
-              <motion.div
-                key={l.to}
-                initial={{ opacity: 0, y: 12 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.045, duration: 0.2 }}
+              {/* Close button */}
+              <button
+                className="nav-mobile-close"
+                onClick={() => setIsOpen(false)}
+                aria-label="Close menu"
               >
-                <NavLink
-                  to={l.to}
-                  end={l.to === "/"}
-                  className={({ isActive }) =>
-                    `nav-mobile-link${isActive ? " active" : ""}`
-                  }
-                  onClick={() => setIsOpen(false)}
-                >
-                  {l.label}
-                </NavLink>
-              </motion.div>
-            ))}
-          </motion.div>
+                ✕
+              </button>
+
+              {/* Links */}
+              <div className="nav-drawer-links">
+                {links.map((l, i) => (
+                  <motion.div
+                    key={l.to}
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: i * 0.04 + 0.1, duration: 0.2 }}
+                  >
+                    <NavLink
+                      to={l.to}
+                      end={l.to === "/"}
+                      className={({ isActive }) =>
+                        `nav-mobile-link${isActive ? " active" : ""}`
+                      }
+                      onClick={() => setIsOpen(false)}
+                    >
+                      {l.label}
+                    </NavLink>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+          </>
         )}
       </AnimatePresence>
     </>

@@ -152,10 +152,17 @@
   transform: none;
 }
 
+/* ── Tablet ── */
+@media (max-width: 768px) {
+  .gallery-container {
+    padding: 3rem 1.5rem;
+  }
+}
+
 /* ── Mobile ── */
 @media (max-width: 600px) {
   .gallery-container {
-    padding: 10px 12px;
+    padding: 2.5rem 1rem;
   }
 
   .gallery-title {

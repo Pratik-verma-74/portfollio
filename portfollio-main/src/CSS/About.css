@@ -71,6 +71,7 @@
 }
 
 @media (max-width: 768px) {
+  .about-container { padding: 3rem 1.5rem !important; }
   .aboutme-card { padding: 2rem 1.5rem !important; }
   .aboutme-title { font-size: 1.5rem !important; }
   .aboutme-edu-title { font-size: 1.3rem !important; }
@@ -80,6 +81,7 @@
 }
 
 @media (max-width: 480px) {
+  .about-container { padding: 2.5rem 1rem !important; }
   .aboutme-card { padding: 1.4rem 1rem !important; }
   .aboutme-title { font-size: 1.3rem !important; }
   .aboutme-edu-title { font-size: 1.15rem !important; }

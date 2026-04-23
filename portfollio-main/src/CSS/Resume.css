@@ -134,6 +134,9 @@
 
 /* ── Tablet ── */
 @media (max-width: 768px) {
+  .resume-container {
+    padding: 3rem 1.5rem;
+  }
   .resume-card {
     padding: 30px 20px;
   }
@@ -156,7 +159,7 @@
 /* ── Mobile ── */
 @media (max-width: 520px) {
   .resume-container {
-    padding: 30px 10px;
+    padding: 2.5rem 1rem;
   }
 
   .resume-card {
