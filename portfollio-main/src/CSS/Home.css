@@ -181,3 +181,100 @@
   filter: grayscale(0) opacity(1) drop-shadow(0 0 15px var(--accent, #00e5ff));
   transform: scale(1.25) translateY(-5px);
 }
+
+/* 📱 Responsive Design for All Screens */
+
+/* Laptops & Large Tablets */
+@media (max-width: 1024px) {
+  .home-top {
+    gap: 2rem;
+  }
+  .home-title {
+    font-size: 2.5rem;
+  }
+}
+
+/* Tablets (Portrait) */
+@media (max-width: 850px) {
+  .home-top {
+    flex-direction: column;
+    text-align: center;
+    gap: 3rem;
+  }
+  .home-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .profession-tags {
+    justify-content: center;
+  }
+  /* Disable typing animation on small screens so text can wrap properly */
+  .typing-effect {
+    font-size: 1.1rem;
+    white-space: normal;
+    border-right: none;
+    animation: none;
+    width: auto;
+  }
+  .info-cards {
+    width: 100%;
+    max-width: 500px;
+  }
+}
+
+/* Mobile Devices */
+@media (max-width: 600px) {
+  .home-section {
+    padding: 3rem 1rem;
+  }
+  .photo-container {
+    width: 250px;
+    height: 250px;
+  }
+  .photo-frame {
+    width: 220px;
+    height: 220px;
+  }
+  .home-title {
+    font-size: 2rem;
+  }
+  .typing-effect {
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+  }
+  .profession-tag {
+    font-size: 0.8rem;
+    padding: 0.4rem 1rem;
+  }
+  .quick-links {
+    margin-top: 3rem;
+  }
+  .quick-links-list {
+    padding: 1.2rem 2rem;
+    gap: 1.5rem;
+    border-radius: 25px;
+  }
+  .quick-link-img {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+/* Extra Small Phones */
+@media (max-width: 400px) {
+  .photo-container {
+    width: 200px;
+    height: 200px;
+  }
+  .photo-frame {
+    width: 180px;
+    height: 180px;
+  }
+  .home-title {
+    font-size: 1.6rem;
+  }
+  .info-cards {
+    grid-template-columns: 1fr;
+  }
+}
