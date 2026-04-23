@@ -36,6 +36,34 @@
   line-height: 1.6;
 }
 
+/* ── Premium Glowing Wrapper ── */
+.projects-wrapper {
+  background: rgba(10, 25, 40, 0.4);
+  border: 1px solid rgba(0, 229, 255, 0.15);
+  border-radius: 24px;
+  padding: 3rem;
+  box-shadow: 
+    0 0 40px rgba(0, 229, 255, 0.08), 
+    inset 0 0 20px rgba(0, 229, 255, 0.05);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle top glow line for premium feel */
+.projects-wrapper::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(0, 229, 255, 0.8), transparent);
+  box-shadow: 0 0 20px rgba(0, 229, 255, 0.5);
+}
+
 /* ── Grid ── */
 .projects-grid {
   display: grid;
@@ -180,6 +208,11 @@
 @media (max-width: 768px) {
   .projects-section {
     padding: 4rem 1.5rem;
+  }
+  
+  .projects-wrapper {
+    padding: 1.5rem;
+    border-radius: 16px;
   }
   
   .section-title {

@@ -194,12 +194,20 @@ export default function Projects() {
         </p>
       </div>
 
-      {/* Grid */}
-      <div className="projects-grid">
-        {ALL_PROJECTS.map((p, idx) => (
-          <ProjectCard key={idx} p={p} idx={idx} />
-        ))}
-      </div>
+      {/* Premium Glowing Wrapper */}
+      <motion.div 
+        className="projects-wrapper"
+        initial={{ opacity: 0, scale: 0.98 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.8, delay: 0.2 }}
+      >
+        {/* Grid */}
+        <div className="projects-grid">
+          {ALL_PROJECTS.map((p, idx) => (
+            <ProjectCard key={idx} p={p} idx={idx} />
+          ))}
+        </div>
+      </motion.div>
     </motion.section>
   )
 }
