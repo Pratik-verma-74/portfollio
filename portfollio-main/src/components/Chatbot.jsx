@@ -56,6 +56,14 @@ export default function Chatbot() {
   }, [messages, isLoading]);
 
   const fetchGroqResponse = async (userText) => {
+    if (!GROQ_API_KEY) {
+      setMessages((prev) => [...prev, { 
+        sender: "bot", 
+        text: "API Key missing! Please add VITE_GROQ_API_KEY to your Vercel environment variables to enable the AI." 
+      }]);
+      return;
+    }
+
     setIsLoading(true);
     try {
       const response = await fetch("https://api.groq.com/openai/v1/chat/completions", {
@@ -133,7 +141,7 @@ export default function Chatbot() {
           >
             <div className="chatbot-header">
               <h3>🤖 Pratik-Bot</h3>
-              <p>AI Assistant (Llama 3.3)</p>
+              <p>AI Assistant</p>
             </div>
 
             <div className="chatbot-messages">
