@@ -57,38 +57,61 @@ const ORIGINAL_PROJECTS = [
 
 const DUMMY_PROJECTS = [
   {
-    title: '🎓 AI Attendance System',
-    desc: 'A face-recognition-powered attendance tracker that automatically logs student presence using OpenCV and DeepFace. Supports real-time detection, CSV export, and a dashboard for teachers.',
-    ss: null,           // placeholder
+    title: '🎓  QP HUB (Question Paper Hub) ALL PREVIOUS YEAR QUESTION PAPERS',
+    desc: 'This platform helps students access previous year question papers easily and contribute to the community.A face-recognition-powered attendance tracker that automatically logs student presence using OpenCV and DeepFace. Supports real-time detection, CSV export, and a dashboard for teachers.',
+    ss: 'qphub_ss.png',           // placeholder
     placeholder: '🎓',
     placeholderBg: 'linear-gradient(135deg, #0d1b2a, #1a3550)',
-    tech: ['Python', 'OpenCV', 'DeepFace', 'Flask', 'SQLite', 'React'],
-    live: '#',
-    code: '#',
-    isDemo: true,
+    tech: ['HTML', 'CSS', 'JavaScript', 'SUPABASE'],
+    live: 'https://qphub2.netlify.app/',
+    code: 'https://github.com/Pratik-verma-74/QPHUB/blob/main/index.html',
+    isDemo: false,
   },
   {
-    title: '🏥 MR Management Tool',
-    desc: 'A medical-representative field-force management dashboard with visit scheduling, doctor database, sample tracking, and performance analytics built for pharma teams.',
-    ss: null,
+    title: 'SMART FILE CONVERTER',
+    desc: 'Smart Document Converter is a frontend tool that lets users upload, resize, compress, and convert files into JPG, PNG, or PDF directly in the browser. It also includes a Mass AI chatbot that guides users on document requirements and allows downloading all files together in a ZIP.',
+    ss: 'file_converter_ss.png',
     placeholder: '🏥',
     placeholderBg: 'linear-gradient(135deg, #0d1f12, #12332a)',
-    tech: ['React', 'Node.js', 'MongoDB', 'Express', 'Chart.js'],
-    live: '#',
-    code: '#',
-    isDemo: true,
+    tech: ['HTML', 'CSS', 'JavaScript', 'NO BACKEND'],
+    live: 'https://smartdocument-converter.netlify.app/',
+    code: 'https://github.com/Pratik-verma-74/mass-pdf-converter',
+    isDemo: false,
   },
   {
-    title: '🛒 E-commerce Dashboard',
-    desc: 'A full-stack e-commerce admin panel with real-time inventory management, order tracking, revenue charts, customer analytics, and product CRUD operations.',
-    ss: null,
+    title: 'MedRep Pro – Smart MR Management System ',
+    desc: 'MedRep Pro is a smart web app designed for Medical Representatives to manage doctors, orders, and payments. It helps track dues, generate reports, and organize daily work efficiently. Works offline with no login or database required.',
+    ss: 'medrep_pro_ss.png',
     placeholder: '🛒',
     placeholderBg: 'linear-gradient(135deg, #1a0d28, #2e1050)',
-    tech: ['React', 'Redux', 'Node.js', 'PostgreSQL', 'Tailwind CSS'],
-    live: '#',
-    code: '#',
-    isDemo: true,
+    tech: ['HTML', 'CSS', 'JavaScript', 'NO BACKEND', 'LOCALSTORAGE'],
+    live: 'https://medicalmrreport.netlify.app/',
+    code: 'https://github.com/Pratik-verma-74/samir-app',
+    isDemo: false,
   },
+  {
+    title: 'Medical Representatives to Track Doctor visits Daily Attendance',
+    desc: 'MedRep Pro is a smart web app designed for Medical Representatives to manage doctors, orders, and payments. It helps track dues, generate reports, and organize daily work efficiently. Works offline with no login or database required.',
+    ss: 'attendance_tracker_ss.png',
+    placeholder: '🛒',
+    placeholderBg: 'linear-gradient(135deg, #1a0d28, #2e1050)',
+    tech: ['HTML', 'CSS', 'JavaScript', 'NO BACKEND', 'LOCALSTORAGE','LIVE TRACKING','MAP'],
+    live: 'https://69199d4a1efc7a4a5ecdf79b--resplendent-boba-5d7f4b.netlify.app/',
+    code: 'https://github.com/Pratik-verma-74/expense/blob/main/index.html',
+    isDemo: false,
+  },
+  {
+    title: 'Patient Report Generator',
+    desc: 'THIS APP IS SPECIAL FOR MEDICAL STAFF LIKE NURSES AND  DOCTORS, THEY CAN GENERATE PATIENT REPORTS.A simple web-based tool to register patients, generate unique patient IDs, create PDF reports with patient details, and send information via WhatsApp instantly  ',
+    ss: 'patient_report_ss.png',
+    placeholder: '🛒',
+    placeholderBg: 'linear-gradient(135deg, #1a0d28, #2e1050)',
+    tech: ['HTML', 'CSS', 'JavaScript', 'NO BACKEND', 'Download pdf ','excel report','medicine and helth report generator'],
+    live: 'https://6936b6eb9520bf1607f56341--ornate-patient-report-pratik.netlify.app/',
+    code: 'https://github.com/Pratik-verma-74/patient-report/blob/main/index.html',
+    isDemo: false,
+  },
+  
 ]
 
 const ALL_PROJECTS = [...ORIGINAL_PROJECTS, ...DUMMY_PROJECTS]
@@ -129,7 +152,7 @@ function ProjectCard({ p, idx }) {
                 color: 'rgba(255,255,255,0.35)',
               }}
             >
-              Demo Project
+              MY Project
             </span>
           </div>
         )}
@@ -168,7 +191,7 @@ function ProjectCard({ p, idx }) {
             whileTap={{ scale: 0.96 }}
           >
             <ExternalLink size={13} />
-            {p.isDemo ? 'In Progress' : 'Live Demo'}
+            {p.isDemo ? 'In Progress' : 'Live'}
           </motion.a>
         </div>
       </div>
