@@ -58,7 +58,7 @@ const ORIGINAL_PROJECTS = [
 const DUMMY_PROJECTS = [
   {
     title: '🎓  QP HUB (Question Paper Hub) ALL PREVIOUS YEAR QUESTION PAPERS',
-    desc: 'This platform helps students access previous year question papers easily and contribute to the community.A face-recognition-powered attendance tracker that automatically logs student presence using OpenCV and DeepFace. Supports real-time detection, CSV export, and a dashboard for teachers.',
+    desc: 'This platform helps students access previous year question papers easily and contribute to the community. specil for bca,ncc,biotechnology students , ',
     ss: 'qphub_ss.png',           // placeholder
     placeholder: '🎓',
     placeholderBg: 'linear-gradient(135deg, #0d1b2a, #1a3550)',

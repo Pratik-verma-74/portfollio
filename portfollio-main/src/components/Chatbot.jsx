@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Send } from "lucide-react";
+import { Send, MessageSquare, Trash2, X, Bot, User, Sparkles } from "lucide-react";
 import "../CSS/Chatbot.css";
 
 const GROQ_API_KEY = import.meta.env.VITE_GROQ_API_KEY;
@@ -35,9 +35,9 @@ Guidelines:
 `;
 
 const PREDEFINED_QUESTIONS = [
-  { id: "q1", text: "Who is Pratik?" },
-  { id: "q2", text: "Tell me about MASS project" },
-  { id: "q3", text: "What are your technical skills?" }
+  { id: "q1", text: "Who is Pratik?", icon: <User size={14} /> },
+  { id: "q2", text: "Tell me about MASS", icon: <Sparkles size={14} /> },
+  { id: "q3", text: "Skills & Stack", icon: <Bot size={14} /> }
 ];
 
 export default function Chatbot() {
@@ -59,7 +59,7 @@ export default function Chatbot() {
     if (!GROQ_API_KEY) {
       setMessages((prev) => [...prev, { 
         sender: "bot", 
-        text: "API Key missing! Please add VITE_GROQ_API_KEY to your Vercel environment variables to enable the AI." 
+        text: "API Key missing! Please add VITE_GROQ_API_KEY to your environment variables." 
       }]);
       return;
     }
@@ -76,7 +76,7 @@ export default function Chatbot() {
           model: "llama-3.3-70b-versatile",
           messages: [
             { role: "system", content: SYSTEM_PROMPT },
-            ...messages.map(m => ({ 
+            ...messages.slice(-6).map(m => ({ 
               role: m.sender === "user" ? "user" : "assistant", 
               content: m.text 
             })),
@@ -97,14 +97,17 @@ export default function Chatbot() {
       setMessages((prev) => [...prev, { sender: "bot", text: botResponse }]);
     } catch (error) {
       console.error("Chatbot Error:", error);
-      setMessages((prev) => [...prev, { sender: "bot", text: "I'm having a little trouble connecting to my brain right now. Please try again in a moment!" }]);
+      setMessages((prev) => [...prev, { 
+        sender: "bot", 
+        text: "I'm having a little trouble connecting right now. Please try again!" 
+      }]);
     } finally {
       setIsLoading(false);
     }
   };
 
   const handleSendMessage = async (e) => {
-    e.preventDefault();
+    if (e) e.preventDefault();
     if (!userInput.trim() || isLoading) return;
 
     const text = userInput;
@@ -119,51 +122,72 @@ export default function Chatbot() {
     await fetchGroqResponse(question.text);
   };
 
+  const clearChat = () => {
+    setMessages([{ sender: "bot", text: "Chat cleared. How else can I help you?" }]);
+  };
+
   return (
-    <>
+    <div className="chatbot-container">
       <motion.button
-        className="chatbot-fab"
+        className={`chatbot-fab ${isOpen ? 'active' : ''}`}
         onClick={() => setIsOpen(!isOpen)}
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.9 }}
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
       >
-        {isOpen ? "✕" : "🤖"}
+        {isOpen ? <X size={28} /> : <MessageSquare size={28} />}
+        {!isOpen && <span className="fab-badge"></span>}
       </motion.button>
 
       <AnimatePresence>
         {isOpen && (
           <motion.div
             className="chatbot-window"
-            initial={{ opacity: 0, y: 50, scale: 0.9 }}
+            initial={{ opacity: 0, y: 40, scale: 0.9, transformOrigin: "bottom right" }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 50, scale: 0.9 }}
-            transition={{ type: "spring", stiffness: 260, damping: 20 }}
+            exit={{ opacity: 0, y: 40, scale: 0.9 }}
           >
+            {/* Header */}
             <div className="chatbot-header">
-              <h3>🤖 Pratik-Bot</h3>
-              <p>AI Assistant</p>
+              <div className="header-info">
+                <div className="bot-avatar">
+                   <Bot size={20} color="#00e5ff" />
+                   <span className="status-dot online"></span>
+                </div>
+                <div className="header-text">
+                  <h3>Pratik-Bot</h3>
+                  <span>Online & Ready</span>
+                </div>
+              </div>
+              <button className="clear-btn" onClick={clearChat} title="Clear Chat">
+                <Trash2 size={18} />
+              </button>
             </div>
 
+            {/* Messages Area */}
             <div className="chatbot-messages">
               {messages.map((msg, index) => (
-                <div key={index} className={`message-wrapper ${msg.sender}`}>
+                <motion.div 
+                  key={index} 
+                  initial={{ opacity: 0, x: msg.sender === 'user' ? 10 : -10 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  className={`message-wrapper ${msg.sender}`}
+                >
                   <div className={`message-bubble ${msg.sender}`}>
                     {msg.text}
                   </div>
-                </div>
+                </motion.div>
               ))}
               {isLoading && (
                 <div className="message-wrapper bot">
                   <div className="typing-indicator">
-                    <div className="typing-dot"></div>
-                    <div className="typing-dot"></div>
-                    <div className="typing-dot"></div>
+                    <span></span><span></span><span></span>
                   </div>
                 </div>
               )}
               <div ref={messagesEndRef} />
             </div>
 
+            {/* Predefined Questions */}
             <div className="chatbot-options">
               {PREDEFINED_QUESTIONS.map((q) => (
                 <button
@@ -171,27 +195,34 @@ export default function Chatbot() {
                   className="chatbot-option-btn"
                   onClick={() => handleQuestionClick(q)}
                 >
+                  {q.icon}
                   {q.text}
                 </button>
               ))}
             </div>
 
+            {/* Input Area */}
             <form className="chatbot-input-area" onSubmit={handleSendMessage}>
               <input
                 type="text"
                 className="chatbot-input"
-                placeholder="Type a message..."
+                placeholder="Ask me anything..."
                 value={userInput}
                 onChange={(e) => setUserInput(e.target.value)}
                 disabled={isLoading}
               />
-              <button type="submit" className="chatbot-send-btn" disabled={isLoading || !userInput.trim()}>
+              <button 
+                type="submit" 
+                className="chatbot-send-btn" 
+                disabled={isLoading || !userInput.trim()}
+              >
                 <Send size={18} />
               </button>
             </form>
           </motion.div>
         )}
       </AnimatePresence>
-    </>
+    </div>
   );
 }
+
