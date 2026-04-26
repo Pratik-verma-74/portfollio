@@ -101,16 +101,14 @@ export default function Footer() {
         {/* ── COL 2: Quick Links ── */}
         <motion.div className="footer-col" variants={itemVariants}>
           <div className="footer-col-title">Quick Links</div>
-          <ul className="footer-links">
+          <div className="footer-links-grid">
             {QUICK_LINKS.map((l) => (
-              <li key={l.label}>
-                <Link to={l.to}>
-                  <ChevronRight size={14} className="link-arrow" />
-                  {l.label}
-                </Link>
-              </li>
+              <Link key={l.label} to={l.to} className="footer-link-btn">
+                <ChevronRight size={12} className="link-arrow" />
+                {l.label}
+              </Link>
             ))}
-          </ul>
+          </div>
         </motion.div>
 
         {/* ── COL 3: Social / Follow Me ── */}
