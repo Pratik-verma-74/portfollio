@@ -65,7 +65,7 @@ export default function Home() {
                 transition={{ duration: 0.9, ease: 'easeInOut' }}
               />
             </AnimatePresence>
-          </motion.div>
+          </div>
         </motion.div>
 
         {/* ── RIGHT: Info ── */}
