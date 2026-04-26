@@ -50,7 +50,7 @@ const ORIGINAL_PROJECTS = [
     desc: 'A mini Power BI-style dashboard using HTML, CSS, and JavaScript for interactive data visualization with charts, KPI cards, and dataset preview.',
     ss: '/ProfileX.png',
     tech: ['Power BI', 'Data Visualization', 'HTML', 'CSS', 'JavaScript'],
-    live: 'https://69babc8d5997989746045b14--velvety-kataifi-9441c2.netlify.app/',
+    live: 'https://vercel.com/pratikverma153-gmailcoms-projects/power-bi-mini-version',
     code: 'https://github.com/Pratik-verma-74/PowerBi-mini-version',
   },
 ]
@@ -74,7 +74,7 @@ const DUMMY_PROJECTS = [
     placeholder: '🏥',
     placeholderBg: 'linear-gradient(135deg, #0d1f12, #12332a)',
     tech: ['HTML', 'CSS', 'JavaScript', 'NO BACKEND'],
-    live: 'https://smartdocument-converter.netlify.app/',
+    live: 'https://69d653ac118b11ec33b1c332--smart-document-converter.netlify.app/',
     code: 'https://github.com/Pratik-verma-74/mass-pdf-converter',
     isDemo: false,
   },
