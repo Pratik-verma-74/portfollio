@@ -46,21 +46,13 @@ export default function Home() {
         {/* ── LEFT: Photo ── */}
         <motion.div
           className="photo-container"
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.9 }}
         >
-          <motion.div
-            className="photo-ring"
-            animate={{ rotate: [0, 360] }}
-            transition={{ duration: 28, repeat: Infinity, ease: 'linear' }}
-          />
+          <div className="photo-ring" />
 
-          <motion.div
-            className="photo-frame"
-            animate={{ y: [0, -8, 0] }}
-            transition={{ duration: 4.5, repeat: Infinity, ease: 'easeInOut' }}
-          >
+          <div className="photo-frame">
             <AnimatePresence mode="wait">
               <motion.img
                 key={showSign ? 'sign' : 'photo'}
