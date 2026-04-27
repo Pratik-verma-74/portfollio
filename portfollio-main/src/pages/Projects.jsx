@@ -120,13 +120,7 @@ const ALL_PROJECTS = [...ORIGINAL_PROJECTS, ...DUMMY_PROJECTS]
 /* ── Card component ── */
 function ProjectCard({ p, idx }) {
   return (
-    <motion.div
-      className="project-card"
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.1 }}
-      transition={{ duration: 0.6, delay: (idx % 3) * 0.1 }}
-    >
+    <div className="project-card">
       {/* Screenshot / placeholder */}
       <div className="project-ss">
         {p.ss ? (
@@ -170,48 +164,37 @@ function ProjectCard({ p, idx }) {
           ))}
         </div>
 
-        {/* Actions */}
         <div className="project-actions">
-          <motion.a
+          <a
             href={p.code}
             target="_blank"
             rel="noreferrer"
             className="proj-btn-code"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.96 }}
             onClick={playClick}
           >
             <Github size={13} />
             {p.isDemo ? 'Coming Soon' : 'Code'}
-          </motion.a>
-          <motion.a
+          </a>
+          <a
             href={p.live}
             target="_blank"
             rel="noreferrer"
             className="proj-btn-live"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.96 }}
             onClick={playClick}
           >
             <ExternalLink size={13} />
             {p.isDemo ? 'In Progress' : 'Live'}
-          </motion.a>
+          </a>
         </div>
       </div>
-    </motion.div>
+    </div>
   )
 }
 
 /* ── Page ── */
 export default function Projects() {
   return (
-    <motion.section
-      className="projects-section"
-      initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.1 }}
-      transition={{ duration: 0.8 }}
-    >
+    <section className="projects-section">
       {/* Header */}
       <div className="projects-header">
         <h2 className="section-title"> Projects</h2>
@@ -221,21 +204,15 @@ export default function Projects() {
         </p>
       </div>
 
-      {/* Premium Glowing Wrapper */}
-      <motion.div 
-        className="projects-wrapper"
-        initial={{ opacity: 0, scale: 0.98 }}
-        whileInView={{ opacity: 1, scale: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8 }}
-      >
+      {/* Premium Wrapper */}
+      <div className="projects-wrapper">
         {/* Grid */}
         <div className="projects-grid">
           {ALL_PROJECTS.map((p, idx) => (
             <ProjectCard key={idx} p={p} idx={idx} />
           ))}
         </div>
-      </motion.div>
-    </motion.section>
+      </div>
+    </section>
   )
 }

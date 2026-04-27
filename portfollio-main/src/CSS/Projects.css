@@ -211,8 +211,9 @@
   }
   
   .projects-wrapper {
-    padding: 1.5rem;
+    padding: 1.5rem 1rem;
     border-radius: 16px;
+    overflow: visible; /* Prevent clipping on mobile */
   }
   
   .section-title {
@@ -220,12 +221,14 @@
   }
 
   .projects-grid {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
     gap: 2rem;
   }
   
   .project-ss {
-    height: 240px; /* Taller on mobile for better visibility */
+    height: 240px; 
   }
 }
 
