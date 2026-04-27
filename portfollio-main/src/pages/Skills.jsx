@@ -84,9 +84,10 @@ export default function Skills() {
       {/* Header */}
       <motion.div
         className="skills-header"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.9 }}
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.8 }}
       >
         <h2>My Skills</h2>
         <div className="skills-underline" />
@@ -106,9 +107,10 @@ export default function Skills() {
           <motion.div
             key={s.name}
             className="skill-circle"
-            initial={{ opacity: 0, scale: 0 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: i * 0.07, duration: 0.55, ease: "easeOut" }}
+            initial={{ opacity: 0, scale: 0, y: 20 }}
+            whileInView={{ opacity: 1, scale: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: i * 0.05, duration: 0.5, ease: "easeOut" }}
             whileHover={{
               scale: 1.28,
               boxShadow: "0 0 30px 8px rgba(0,180,255,0.55)",

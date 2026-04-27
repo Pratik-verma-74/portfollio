@@ -121,10 +121,10 @@ function ProjectCard({ p, idx }) {
   return (
     <motion.div
       className="project-card"
-      initial={{ opacity: 0, y: 24, scale: 0.96 }}
-      whileInView={{ opacity: 1, y: 0, scale: 1 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.45, delay: idx * 0.1 }}
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.1 }}
+      transition={{ duration: 0.6, delay: (idx % 3) * 0.1 }}
     >
       {/* Screenshot / placeholder */}
       <div className="project-ss">
@@ -204,9 +204,10 @@ export default function Projects() {
   return (
     <motion.section
       className="projects-section"
-      initial={{ opacity: 0, y: 24 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6 }}
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.1 }}
+      transition={{ duration: 0.8 }}
     >
       {/* Header */}
       <div className="projects-header">
@@ -221,8 +222,9 @@ export default function Projects() {
       <motion.div 
         className="projects-wrapper"
         initial={{ opacity: 0, scale: 0.98 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.8, delay: 0.2 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8 }}
       >
         {/* Grid */}
         <div className="projects-grid">

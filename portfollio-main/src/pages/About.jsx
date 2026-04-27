@@ -34,9 +34,10 @@ export default function AboutMe() {
 
       <motion.div
         className="aboutme-card"
-        initial={{ opacity: 0, y: 22 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.3, duration: 0.8 }}
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.8 }}
       >
         {/* ── About header ── */}
         <h2 className="aboutme-title">About Me</h2>

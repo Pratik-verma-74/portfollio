@@ -176,7 +176,13 @@ export default function Certificates() {
       `}</style>
 
       <section className="certs-section">
-        <div className="certs-inner">
+        <motion.div 
+          className="certs-inner"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.1 }}
+          transition={{ duration: 0.8 }}
+        >
           <h2 className="certs-heading">Certificates 🏅</h2>
           <p className="certs-lead">Explore my certifications — technical &amp; others.</p>
 
@@ -204,10 +210,11 @@ export default function Certificates() {
                 <motion.div
                   key={c.title}
                   className="cert-card"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
                   exit={{ opacity: 0, y: -20 }}
-                  transition={{ duration: 0.4, delay: idx * 0.1 }}
+                  transition={{ duration: 0.5, delay: idx * 0.1 }}
                   whileHover={{
                     scale: 1.03,
                     boxShadow: "0 0 15px rgba(0,123,255,0.4)",
@@ -226,7 +233,7 @@ export default function Certificates() {
               ))}
             </AnimatePresence>
           </div>
-        </div>
+        </motion.div>
       </section>
 
       {/* Modal */}
