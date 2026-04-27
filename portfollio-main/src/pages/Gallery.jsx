@@ -40,6 +40,41 @@ const IMAGES = {
       caption: "Inspiration strikes away from the screen.",
       photos: ["/gallery/lonawala2.jpg"],
     },
+    {
+      id: 8,
+      caption: "Special Moments 📸",
+      photos: ["/gallery/img1.jpeg"],
+    },
+    {
+      id: 9,
+      caption: "Exploring new places 🌍",
+      photos: ["/gallery/img2.jpeg"],
+    },
+    {
+      id: 10,
+      caption: "Candid shots ✨",
+      photos: ["/gallery/img3.jpeg"],
+    },
+    {
+      id: 11,
+      caption: "Vibing with nature 🌿",
+      photos: ["/gallery/img4.jpeg"],
+    },
+    {
+      id: 12,
+      caption: "Cherished memories 🌟",
+      photos: ["/gallery/img5.jpeg"],
+    },
+    {
+      id: 13,
+      caption: "Tech & Life 💻",
+      photos: ["/gallery/img6.jpeg"],
+    },
+    {
+      id: 14,
+      caption: "Journey of growth 🌱",
+      photos: ["/gallery/img7.jpeg"],
+    },
   ],
   projects: [
     {
