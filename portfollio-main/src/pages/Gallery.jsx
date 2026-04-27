@@ -83,12 +83,17 @@ const IMAGES = {
         "It’s an AI-powered tool that understands what someone might be feeling based on their words.",
       photos: ["/gallery/m.png", "/gallery/m2.jpeg"],
     },
-    
     {
-      id: 1,
-      caption:
-        "📂ProfileX - Smart Data Profiler + Preprocessor",
-      photos: ["/gallery/profilex.jpeg", "/gallery/profilex2.jpeg","/gallery/profilex3.jpeg", "/gallery/profilex4.jpeg"],
+      id: 2,
+      caption: "📂 ProfileX - Smart Data Profiler + Preprocessor",
+      photos: ["/gallery/profilex.jpeg", "/gallery/profilex2.jpeg", "/gallery/profilex3.jpeg", "/gallery/profilex4.jpeg"],
+    },
+    {
+      id: 3,
+      caption: "MASS AI – Advanced Automation & AI Voice Assistant 🤖",
+      photos: ["/gallery/m.png"], // Main Mass AI image
+      videoUrl: "https://github.com/Pratik-verma-74/Mass-ai-", // GitHub link for now
+      buttonText: "MASS AI Demo Video"
     },
   ],
   achievements: [
@@ -222,6 +227,20 @@ export default function Gallery() {
                   </motion.div>
                 ))}
               </div>
+              
+              {/* 🎬 Demo Video Button */}
+              {post.videoUrl && (
+                <motion.a 
+                  href={post.videoUrl} 
+                  target="_blank" 
+                  rel="noreferrer"
+                  className="gallery-demo-btn"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  {post.buttonText || "Demo Video"}
+                </motion.a>
+              )}
             </motion.div>
           ))}
         </motion.div>
