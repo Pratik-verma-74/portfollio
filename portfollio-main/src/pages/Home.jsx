@@ -16,6 +16,11 @@ export default function Home() {
 
   // 🔥 Image Toggle State — original logic preserved
   const [showSign, setShowSign] = useState(false)
+  const [typingDone, setTypingDone] = useState(false)
+
+  const sentence = "Hi, I'm ".split("")
+  const name     = "Pratik Verma".split("")
+  const tagline  = "AI Automation Engineer | Frontend Developer | Tech Explorer".split("")
 
   useEffect(() => {
     const interval = setInterval(() => setShowSign((prev) => !prev), 5000)
@@ -71,24 +76,56 @@ export default function Home() {
         {/* ── RIGHT: Info ── */}
         <motion.div
           className="home-info"
-          initial={{ opacity: 0, x: 50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.9, delay: 0.1 }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1 }}
         >
           <h1 className="home-title">
-            Hi, I'm{' '}
-            <motion.span
-              className="home-name"
-              animate={{ backgroundPositionX: ['0%', '200%'] }}
-              transition={{ duration: 5, repeat: Infinity, ease: 'linear' }}
-            >
-              Pratik Verma
-            </motion.span>
+            {sentence.map((char, i) => (
+              <motion.span
+                key={i}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: i * 0.08 }}
+              >
+                {char}
+              </motion.span>
+            ))}
+            <span className={`home-name-container ${typingDone ? 'typing-finished' : 'typing-active'}`}>
+              {name.map((char, i) => (
+                <motion.span
+                  key={i}
+                  initial={{ opacity: 0, y: 10, filter: 'blur(5px)' }}
+                  animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+                  transition={{ 
+                    delay: (sentence.length * 0.08) + (i * 0.12),
+                    duration: 0.4 
+                  }}
+                  onAnimationComplete={() => {
+                    if (i === name.length - 1) setTypingDone(true)
+                  }}
+                  className="name-char"
+                >
+                  {char}
+                </motion.span>
+              ))}
+            </span>
           </h1>
 
-          <p className="typing-effect">
-            AI Automation Engineer | Frontend Developer | Tech Explorer
-          </p>
+          <div className="typing-tagline">
+            {tagline.map((char, i) => (
+              <motion.span
+                key={i}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ 
+                  delay: (sentence.length * 0.08) + (name.length * 0.12) + (i * 0.03) 
+                }}
+              >
+                {char}
+              </motion.span>
+            ))}
+          </div>
 
           {/* Profession Tags */}
           <motion.div className="profession-tags">

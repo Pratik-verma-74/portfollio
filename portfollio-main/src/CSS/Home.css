@@ -103,25 +103,48 @@
   margin-bottom: 1rem;
 }
 
-.home-name {
-  background: linear-gradient(90deg, var(--accent), var(--accent-2), var(--accent));
+.home-name-container {
+  display: inline-block;
+  position: relative;
+}
+
+/* 🔥 Fire Effect during typing */
+.typing-active .name-char {
+  color: #ff4d00;
+  text-shadow: 
+    0 0 10px #ff4d00,
+    0 0 20px #ffae00,
+    0 0 30px #fff200;
+  animation: fire-flicker 0.15s infinite alternate;
+}
+
+@keyframes fire-flicker {
+  0% { transform: translateY(0) scale(1); opacity: 0.9; }
+  100% { transform: translateY(-2px) scale(1.05); opacity: 1; }
+}
+
+/* ✨ Premium Gradient after typing */
+.typing-finished .name-char {
+  background: linear-gradient(90deg, #00b4ff, #00e5ff, #00b4ff);
   background-size: 200% auto;
-  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   color: transparent;
+  animation: shimmer 4s linear infinite;
+  text-shadow: none;
 }
 
-.typing-effect {
-  white-space: nowrap;
-  overflow: hidden;
-  border-right: 3px solid var(--accent);
-  width: 100%;
-  animation: typing 3.5s steps(40, end), blink 0.75s step-end infinite;
-  font-family: monospace;
+@keyframes shimmer {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
+
+.typing-tagline {
   font-size: 1.2rem;
   color: var(--accent);
   margin-bottom: 1.5rem;
+  font-family: 'Outfit', sans-serif;
+  letter-spacing: 1px;
 }
 
 /* 🏷️ Profession Tags Styling */
@@ -245,10 +268,9 @@
     justify-content: center;
   }
   /* Disable typing animation on small screens so text can wrap properly */
-  .typing-effect {
+  .typing-tagline {
     font-size: 1.1rem;
     white-space: normal;
-    border-right: none;
     animation: none;
     width: auto;
   }
@@ -274,7 +296,7 @@
   .home-title {
     font-size: 2.2rem;
   }
-  .typing-effect {
+  .typing-tagline {
     font-size: 1rem;
     margin-bottom: 1rem;
   }
