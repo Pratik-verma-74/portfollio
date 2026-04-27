@@ -8,7 +8,7 @@ const IMAGES = {
     {
       id: 1,
       caption: "Memories 📸",
-      photos: ["/gallery/pratik1.jpg"],
+      photos: ["/gallery/img1.jpeg"],
     },
     {
       id: 2,
