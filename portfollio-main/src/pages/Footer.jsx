@@ -15,6 +15,7 @@ import {
   Download,
   ChevronRight
 } from "lucide-react";
+import { playClick } from "../utils/sfx";
 import "../CSS/Footer.css";
 
 /* ── Quick links for column 2 ── */
@@ -103,7 +104,7 @@ export default function Footer() {
           <div className="footer-col-title">Quick Links</div>
           <div className="footer-links-grid">
             {QUICK_LINKS.map((l) => (
-              <Link key={l.label} to={l.to} className="footer-link-btn">
+              <Link key={l.label} to={l.to} className="footer-link-btn" onClick={playClick}>
                 <ChevronRight size={12} className="link-arrow" />
                 {l.label}
               </Link>
@@ -122,6 +123,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="footer-social-item"
+                onClick={playClick}
               >
                 <span className="footer-social-icon">{s.icon}</span>
                 <span className="footer-social-label">{s.label}</span>
@@ -140,6 +142,7 @@ export default function Footer() {
                 href={cv.file}
                 download
                 className="footer-cv-btn"
+                onClick={playClick}
               >
                 <Download size={16} />
                 <span>{cv.label}</span>

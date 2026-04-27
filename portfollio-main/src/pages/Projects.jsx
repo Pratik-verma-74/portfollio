@@ -1,6 +1,7 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { Github, ExternalLink } from 'lucide-react'
+import { playClick } from '../utils/sfx'
 import '../CSS/Projects.css'
 
 /* ── Original 6 projects (logic & data untouched) ── */
@@ -178,6 +179,7 @@ function ProjectCard({ p, idx }) {
             className="proj-btn-code"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.96 }}
+            onClick={playClick}
           >
             <Github size={13} />
             {p.isDemo ? 'Coming Soon' : 'Code'}
@@ -189,6 +191,7 @@ function ProjectCard({ p, idx }) {
             className="proj-btn-live"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.96 }}
+            onClick={playClick}
           >
             <ExternalLink size={13} />
             {p.isDemo ? 'In Progress' : 'Live'}

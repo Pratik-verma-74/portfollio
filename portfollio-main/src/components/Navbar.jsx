@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { NavLink } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import "../CSS/Navbar.css";
+import { playClick } from "../utils/sfx";
 
 const links = [
   { label: "Home",         to: "/" },
@@ -81,6 +81,7 @@ export default function Navbar() {
               className={({ isActive }) =>
                 `nav-link-item${isActive ? " active" : ""}`
               }
+              onClick={playClick}
             >
               {({ isActive }) => (
                 <motion.div
@@ -110,7 +111,7 @@ export default function Navbar() {
           <motion.button
             className="nav-hamburger"
             style={{ marginLeft: "auto" }}
-            onClick={() => setIsOpen((v) => !v)}
+            onClick={() => { setIsOpen((v) => !v); playClick(); }}
             aria-label="Toggle menu"
             aria-expanded={isOpen}
             whileTap={{ scale: 0.92 }}
@@ -165,7 +166,7 @@ export default function Navbar() {
                       className={({ isActive }) =>
                         `nav-mobile-link${isActive ? " active" : ""}`
                       }
-                      onClick={() => setIsOpen(false)}
+                      onClick={() => { setIsOpen(false); playClick(); }}
                     >
                       {l.label}
                     </NavLink>
