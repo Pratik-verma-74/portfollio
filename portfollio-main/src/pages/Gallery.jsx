@@ -7,8 +7,14 @@ const IMAGES = {
   personal: [
     {
       id: 1,
-      caption: "Lost in the beauty of the misty forest 🌲🌫️",
-      photos: ["/gallery/matheran.jpg", "/gallery/matheran2.jpg"],
+      caption: "Moments & Memories 📸",
+      photos: [
+        "/gallery/pratik1.jpg", 
+        "/gallery/pratik2.jpg", 
+        "/gallery/pratik3.jpg", 
+        "/gallery/pratik4.jpg", 
+        "/gallery/pratik5.jpg"
+      ],
     },
     {
       id: 2,
