@@ -7,20 +7,38 @@ const IMAGES = {
   personal: [
     {
       id: 1,
-      caption: "Moments & Memories 📸",
-      photos: [
-        "/gallery/pratik1.jpg", 
-        "/gallery/pratik2.jpg", 
-        "/gallery/pratik3.jpg", 
-        "/gallery/pratik4.jpg", 
-        "/gallery/pratik5.jpg"
-      ],
+      caption: "Memories 📸",
+      photos: ["/gallery/pratik1.jpg"],
     },
     {
       id: 2,
-      caption:
-        "Weekend getaway to clear my head 🌄 Sometimes inspiration strikes when you’re away from the screen.",
-      photos: ["/gallery/lonawala.jpg", "/gallery/lonawala2.jpg"],
+      caption: "Good Times ✨",
+      photos: ["/gallery/pratik2.jpg"],
+    },
+    {
+      id: 3,
+      caption: "Photography 🎨",
+      photos: ["/gallery/pratik3.jpg"],
+    },
+    {
+      id: 4,
+      caption: "Vibes 🌊",
+      photos: ["/gallery/pratik4.jpg"],
+    },
+    {
+      id: 5,
+      caption: "Life 🌟",
+      photos: ["/gallery/pratik5.jpg"],
+    },
+    {
+      id: 6,
+      caption: "Weekend getaway to clear my head 🌄",
+      photos: ["/gallery/lonawala.jpg"],
+    },
+    {
+      id: 7,
+      caption: "Inspiration strikes away from the screen.",
+      photos: ["/gallery/lonawala2.jpg"],
     },
   ],
   projects: [
