@@ -92,7 +92,7 @@ const IMAGES = {
       id: 3,
       caption: "MASS AI – Advanced Automation & AI Voice Assistant 🤖",
       photos: ["/gallery/m.png"], // Main Mass AI image
-      videoUrl: "https://github.com/Pratik-verma-74/Mass-ai-", // GitHub link for now
+      videoUrl: "/gallery/mass_demo.mp4", // Local video file
       buttonText: "MASS AI Demo Video"
     },
   ],
