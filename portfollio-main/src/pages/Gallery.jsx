@@ -1,184 +1,125 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronLeft, ChevronRight, X } from "lucide-react";
+import { ChevronLeft, ChevronRight, X, Sun, Moon } from "lucide-react";
+import HTMLFlipBook from "react-pageflip";
 import "../CSS/Gallery.css";
 
 const IMAGES = {
   personal: [
-    {
-      id: 1,
-      caption: "Memories 📸",
-      photos: ["/gallery/img1.jpeg"],
-    },
-    {
-      id: 2,
-      caption: "Good Times ✨",
-      photos: ["/gallery/pratik2.jpg"],
-    },
-    {
-      id: 3,
-      caption: "Photography 🎨",
-      photos: ["/gallery/pratik3.jpg"],
-    },
-    {
-      id: 4,
-      caption: "Vibes 🌊",
-      photos: ["/gallery/pratik4.jpg"],
-    },
-    {
-      id: 5,
-      caption: "Life 🌟",
-      photos: ["/gallery/pratik5.jpg"],
-    },
-    {
-      id: 6,
-      caption: "Weekend getaway to clear my head 🌄",
-      photos: ["/gallery/lonawala.jpg"],
-    },
-    {
-      id: 7,
-      caption: "Inspiration strikes away from the screen.",
-      photos: ["/gallery/lonawala2.jpg"],
-    },
-    {
-      id: 8,
-      caption: "Special Moments 📸",
-      photos: ["/gallery/img1.jpeg"],
-    },
-    {
-      id: 9,
-      caption: "Exploring new places 🌍",
-      photos: ["/gallery/img2.jpeg"],
-    },
-    {
-      id: 10,
-      caption: "Candid shots ✨",
-      photos: ["/gallery/img3.jpeg"],
-    },
-    {
-      id: 11,
-      caption: "Vibing with nature 🌿",
-      photos: ["/gallery/img4.jpeg"],
-    },
-    {
-      id: 12,
-      caption: "Cherished memories 🌟",
-      photos: ["/gallery/img5.jpeg"],
-    },
-    {
-      id: 13,
-      caption: "Tech & Life 💻",
-      photos: ["/gallery/img6.jpeg"],
-    },
-    {
-      id: 14,
-      caption: "Journey of growth 🌱",
-      photos: ["/gallery/img7.jpeg"],
-    },
+    { id: 1, caption: "Memories 📸", photo: "/gallery/img1.jpeg" },
+    { id: 2, caption: "Exploring new places 🌍", photo: "/gallery/img2.jpeg" },
+    { id: 3, caption: "Candid shots ✨", photo: "/gallery/img3.jpeg" },
+    { id: 4, caption: "Vibing with nature 🌿", photo: "/gallery/img4.jpeg" },
+    { id: 5, caption: "Cherished memories 🌟", photo: "/gallery/img5.jpeg" },
+    { id: 6, caption: "Tech & Life 💻", photo: "/gallery/img6.jpeg" },
+    { id: 7, caption: "Journey of growth 🌱", photo: "/gallery/img7.jpeg" },
+    { id: 8, caption: "Weekend getaway to clear my head 🌄", photo: "/gallery/lonawala.jpg" },
+    { id: 9, caption: "Inspiration strikes away from the screen.", photo: "/gallery/lonawala2.jpg" },
+    { id: 10, caption: "Goa diaries 🌴", photo: "/gallery/goa.jpg" },
+    { id: 11, caption: "Matheran trip ✨", photo: "/gallery/matheran.jpg" }
   ],
   projects: [
-    {
-      id: 1,
-      caption:
-        "It’s an AI-powered tool that understands what someone might be feeling based on their words.",
-      photos: ["/gallery/m.png", "/gallery/m2.jpeg"],
-    },
-    {
-      id: 2,
-      caption: "📂 ProfileX - Smart Data Profiler + Preprocessor",
-      photos: ["/gallery/profilex.jpeg", "/gallery/profilex2.jpeg", "/gallery/profilex3.jpeg", "/gallery/profilex4.jpeg"],
-    },
-    {
-      id: 3,
-      caption: "MASS AI – Advanced Automation & AI Voice Assistant 🤖",
-      photos: ["/gallery/m.png"], // Main Mass AI image
-      videoUrl: "/gallery/mass_demo.mp4", // Local video file
-      buttonText: "MASS AI Demo Video"
-    },
+    { id: 1, caption: "MASS AI – Advanced Automation & AI Voice Assistant 🤖", photo: "/gallery/m.png", videoUrl: "/gallery/mass_demo.mp4", buttonText: "MASS AI Demo Video" },
+    { id: 2, caption: "AI understanding feelings.", photo: "/gallery/m2.jpeg" },
+    { id: 3, caption: "📂 ProfileX - Smart Data Profiler", photo: "/gallery/profilex.jpeg" },
+    { id: 4, caption: "ProfileX Analysis", photo: "/gallery/profilex2.jpeg" },
+    { id: 5, caption: "ProfileX Stats", photo: "/gallery/profilex3.jpeg" },
+    { id: 6, caption: "ProfileX Details", photo: "/gallery/profilex4.jpeg" },
   ],
   achievements: [
-    {
-      id: 1,
-      caption: "National level Hackathon 🏆!",
-      photos: ["/certs/adira.png"],
-    },
-    {
-      id: 2,
-      caption: "Microsoft world record🤖",
-      photos: ["/certs/bugbuzz.png"],
-    },
+    { id: 1, caption: "National level Hackathon 🏆!", photo: "/certs/adira.png" },
+    { id: 2, caption: "Microsoft world record🤖", photo: "/certs/bugbuzz.png" },
+    { id: 3, caption: "NSS Yuva Aapda Mitra Scheme Training 🎖️", photo: "/certs/nss_certificate.jpg.jpeg" },
   ],
 };
 
-// ✨ Animation Variants
-const pageVariants = {
-  hidden: { opacity: 0, y: 40 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      when: "beforeChildren",
-      staggerChildren: 0.2,
-      duration: 0.8,
-      ease: "easeOut",
-    },
-  },
-};
+const PageCover = React.forwardRef((props, ref) => {
+  return (
+    <div className="page page-cover" ref={ref} data-density="hard">
+      <div className="page-content" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+        {props.children}
+      </div>
+    </div>
+  );
+});
 
-const childVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
-};
-
-// ✨ Tab Switching Animations
-const tabContentVariants = {
-  hidden: { opacity: 0, y: 30, scale: 0.98 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    scale: 1,
-    transition: { duration: 0.5, ease: "easeOut" },
-  },
-  exit: { opacity: 0, y: -30, scale: 0.98, transition: { duration: 0.4 } },
-};
+const Page = React.forwardRef((props, ref) => {
+  return (
+    <div className="page" ref={ref}>
+      <div className="page-content">
+        <div className="page-image-container" onClick={props.onClick}>
+          <img src={props.image.photo} alt={props.image.caption} className="page-image" />
+        </div>
+        <div className="page-caption">
+          <p>{props.image.caption}</p>
+          {props.image.videoUrl && (
+            <a 
+              href={props.image.videoUrl} 
+              target="_blank" 
+              rel="noreferrer"
+              className="gallery-demo-btn"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {props.image.buttonText || "Demo Video"}
+            </a>
+          )}
+        </div>
+        <div className="page-number">{props.number}</div>
+      </div>
+    </div>
+  );
+});
 
 export default function Gallery() {
   const [tab, setTab] = useState("personal");
-  const [zoom, setZoom] = useState({ img: null, post: null, index: 0 });
+  const [zoom, setZoom] = useState({ img: null, index: 0 });
+  const [isDarkMode, setIsDarkMode] = useState(true);
+  const bookRef = useRef(null);
+  
+  // Reset book to page 0 when tab changes
+  useEffect(() => {
+    if (bookRef.current && bookRef.current.pageFlip()) {
+      bookRef.current.pageFlip().turnToPage(0);
+    }
+  }, [tab]);
 
-  const openZoom = (post, index) =>
-    setZoom({ img: post.photos[index], post, index });
+  const openZoom = (index) => setZoom({ img: IMAGES[tab][index].photo, index });
+  const closeZoom = () => setZoom({ img: null, index: 0 });
 
-  const closeZoom = () => setZoom({ img: null, post: null, index: 0 });
-
-  const nextImage = () => {
-    if (!zoom.post) return;
-    const nextIndex = (zoom.index + 1) % zoom.post.photos.length;
-    setZoom({ ...zoom, img: zoom.post.photos[nextIndex], index: nextIndex });
+  const nextImage = (e) => {
+    if (e) e.stopPropagation();
+    const nextIndex = (zoom.index + 1) % IMAGES[tab].length;
+    setZoom({ img: IMAGES[tab][nextIndex].photo, index: nextIndex });
   };
 
-  const prevImage = () => {
-    if (!zoom.post) return;
-    const prevIndex =
-      (zoom.index - 1 + zoom.post.photos.length) % zoom.post.photos.length;
-    setZoom({ ...zoom, img: zoom.post.photos[prevIndex], index: prevIndex });
+  const prevImage = (e) => {
+    if (e) e.stopPropagation();
+    const prevIndex = (zoom.index - 1 + IMAGES[tab].length) % IMAGES[tab].length;
+    setZoom({ img: IMAGES[tab][prevIndex].photo, index: prevIndex });
   };
+
+  const currentPhotos = IMAGES[tab];
 
   return (
     <motion.section
-      className="gallery-container"
-      variants={pageVariants}
-      initial="hidden"
-      animate="visible"
-      exit="hidden"
+      className={`gallery-container ${isDarkMode ? "dark-mode" : "light-mode"}`}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.8 }}
     >
-      {/* 🌟 Title */}
-      <motion.h2 className="gallery-title" variants={childVariants}>
+      <button 
+        className="theme-toggle-btn"
+        onClick={() => setIsDarkMode(!isDarkMode)}
+      >
+        {isDarkMode ? <Sun size={28} /> : <Moon size={28} />}
+      </button>
+
+      <motion.h2 className="gallery-title" initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }}>
         Gallery
       </motion.h2>
 
-      {/* 🧭 Tabs */}
-      <motion.div className="tab-buttons" variants={childVariants}>
+      <motion.div className="tab-buttons" initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }}>
         {["personal", "projects", "achievements"].map((type) => (
           <motion.button
             key={type}
@@ -192,61 +133,35 @@ export default function Gallery() {
         ))}
       </motion.div>
 
-      {/* 🖼️ Posts with Animation on Tab Switch */}
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={tab} // Important for AnimatePresence to detect tab change
-          className="post-feed"
-          variants={tabContentVariants}
-          initial="hidden"
-          animate="visible"
-          exit="exit"
+      <div className="book-container">
+        <HTMLFlipBook
+          width={450}
+          height={600}
+          size="stretch"
+          minWidth={315}
+          maxWidth={1000}
+          minHeight={400}
+          maxHeight={1533}
+          maxShadowOpacity={0.5}
+          showCover={true}
+          mobileScrollSupport={true}
+          className="flip-book"
+          ref={bookRef}
         >
-          {IMAGES[tab].map((post) => (
-            <motion.div
-              key={post.id}
-              className="post-card"
-              variants={childVariants}
-              whileHover={{ y: -4 }}
-            >
-              <p className="caption">{post.caption}</p>
-              <div
-                className={`photo-grid ${
-                  post.photos.length > 1 ? "multi" : "single"
-                }`}
-              >
-                {post.photos.map((src, i) => (
-                  <motion.div
-                    key={i}
-                    className="photo-item"
-                    whileHover={{ scale: 1.05 }}
-                    transition={{ type: "spring", stiffness: 250 }}
-                    onClick={() => openZoom(post, i)}
-                  >
-                    <img src={src} alt="gallery" />
-                  </motion.div>
-                ))}
-              </div>
-              
-              {/* 🎬 Demo Video Button */}
-              {post.videoUrl && (
-                <motion.a 
-                  href={post.videoUrl} 
-                  target="_blank" 
-                  rel="noreferrer"
-                  className="gallery-demo-btn"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  {post.buttonText || "Demo Video"}
-                </motion.a>
-              )}
-            </motion.div>
+          <PageCover>
+            <h3 style={{ fontSize: '1.8rem', color: '#ff9933', marginBottom: '15px', fontFamily: '"Georgia", serif', textShadow: '0 2px 10px rgba(0,0,0,0.5)' }}>सत्यमेव जयते</h3>
+            <h2 style={{ fontSize: '2rem', letterSpacing: '2px', textShadow: '0 2px 10px rgba(0,0,0,0.5)' }}>{tab.toUpperCase()} ALBUM</h2>
+          </PageCover>
+          {currentPhotos.map((item, i) => (
+            <Page key={item.id} number={i + 1} image={item} onClick={() => openZoom(i)} />
           ))}
-        </motion.div>
-      </AnimatePresence>
+          <PageCover>
+            <img src="/gallery/ashok_stambh.png" alt="Ashok Stambh" style={{ width: '200px', marginBottom: '25px', borderRadius: '12px', boxShadow: '0 8px 25px rgba(0,0,0,0.5)' }} />
+            <h2 style={{ fontSize: '1.5rem', letterSpacing: '2px', textShadow: '0 2px 10px rgba(0,0,0,0.5)' }}>THE END</h2>
+          </PageCover>
+        </HTMLFlipBook>
+      </div>
 
-      {/* 🔍 Zoom Overlay */}
       <AnimatePresence>
         {zoom.img && (
           <motion.div
@@ -255,34 +170,53 @@ export default function Gallery() {
             animate={{ opacity: 1, backdropFilter: "blur(6px)" }}
             exit={{ opacity: 0, backdropFilter: "blur(0px)" }}
             transition={{ duration: 0.4 }}
+            onClick={closeZoom} // Close on overlay click
           >
-            <motion.img
-              key={zoom.img}
-              src={zoom.img}
-              alt="zoom"
-              className="zoom-img"
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
-              transition={{ duration: 0.3 }}
-            />
+            <div className="zoom-content" onClick={(e) => e.stopPropagation()}>
+              <motion.img
+                key={zoom.img}
+                src={zoom.img}
+                alt="zoom"
+                className="zoom-img"
+                initial={{ scale: 0.9, opacity: 0, x: 20 }}
+                animate={{ scale: 1, opacity: 1, x: 0 }}
+                exit={{ scale: 0.9, opacity: 0, x: -20 }}
+                transition={{ duration: 0.3 }}
+                drag="x"
+                dragConstraints={{ left: 0, right: 0 }}
+                onDragEnd={(e, { offset, velocity }) => {
+                  const swipe = swipePower(offset.x, velocity.x);
+                  if (swipe < -swipeConfidenceThreshold) {
+                    nextImage(null);
+                  } else if (swipe > swipeConfidenceThreshold) {
+                    prevImage(null);
+                  }
+                }}
+              />
 
-            {zoom.post?.photos.length > 1 && (
-              <>
-                <button className="nav-btn left" onClick={prevImage}>
-                  <ChevronLeft size={32} />
-                </button>
-                <button className="nav-btn right" onClick={nextImage}>
-                  <ChevronRight size={32} />
-                </button>
-              </>
-            )}
-            <button className="close-btn" onClick={closeZoom}>
-              <X size={28} />
-            </button>
+              <button className="close-btn" onClick={closeZoom}>
+                <X size={24} />
+              </button>
+
+              {currentPhotos.length > 1 && (
+                <>
+                  <button className="nav-btn left" onClick={(e) => prevImage(e)}>
+                    <ChevronLeft size={32} />
+                  </button>
+                  <button className="nav-btn right" onClick={(e) => nextImage(e)}>
+                    <ChevronRight size={32} />
+                  </button>
+                </>
+              )}
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
     </motion.section>
   );
 }
+
+const swipeConfidenceThreshold = 10000;
+const swipePower = (offset, velocity) => {
+  return Math.abs(offset) * velocity;
+};

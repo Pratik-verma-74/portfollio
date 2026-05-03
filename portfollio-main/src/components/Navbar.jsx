@@ -7,6 +7,7 @@ import "../CSS/Navbar.css";
 const links = [
   { label: "Home",         to: "/" },
   { label: "Projects",     to: "/projects" },
+  { label: "GitHub",       to: "/github" },
   { label: "Skills",       to: "/skills" },
   { label: "Certificates", to: "/certificates" },
   { label: "Resume",       to: "/resume" },

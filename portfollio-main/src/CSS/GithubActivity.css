@@ -1,0 +1,61 @@
+.github-section {
+  min-height: 100vh;
+  padding: 120px 20px 60px;
+  background: #0b0b0b;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.github-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.github-header .section-title {
+  font-size: 2.5rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  text-shadow: 0 2px 10px rgba(0,255,136,0.3);
+}
+
+.github-header .section-bar {
+  width: 80px;
+  height: 4px;
+  background: #00ff88;
+  margin: 0 auto;
+  border-radius: 2px;
+  box-shadow: 0 0 10px #00ff88;
+}
+
+.github-header .section-sub {
+  margin-top: 20px;
+  color: #aaa;
+  font-size: 1.1rem;
+  max-width: 600px;
+}
+
+.calendar-container {
+  background: #111;
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+  border: 1px solid #222;
+  max-width: 1000px;
+  width: 100%;
+  overflow-x: auto;
+  transition: all 0.4s ease;
+}
+
+.calendar-container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 255, 136, 0.15);
+  border-color: rgba(0, 255, 136, 0.5);
+}
+
+/* Customizing the tooltip slightly if needed */
+.react-activity-calendar {
+  color: #eee;
+}
