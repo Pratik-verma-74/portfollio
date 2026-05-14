@@ -4,6 +4,14 @@ import { motion, AnimatePresence } from "framer-motion";
 const CERTS = {
   tech: [
     {
+      title: "Claude 101 Certification — AI Tools & Workflow Optimization",
+      org: "Anthropic",
+      date: "13 May 2026",
+      img: "/certs/claude101.png",
+      link: "/certs/claude101.png",
+      desc: "Completed Claude 101 by Anthropic. Gained practical skills in AI prompting, research automation, productivity workflows using artifacts/projects/skills, and applying AI across business, marketing & development domains.",
+    },
+    {
       title: "Certificate Of Attendance — Amazon Web Services",
       org: "AWS",
       date: "10 April 2025",

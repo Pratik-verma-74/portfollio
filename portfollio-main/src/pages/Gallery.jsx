@@ -19,12 +19,10 @@ const IMAGES = {
     { id: 11, caption: "Matheran trip ✨", photo: "/gallery/matheran.jpg" }
   ],
   projects: [
-    { id: 1, caption: "MASS AI – Advanced Automation & AI Voice Assistant 🤖", photo: "/gallery/m.png", videoUrl: "/gallery/mass_demo.mp4", buttonText: "MASS AI Demo Video" },
-    { id: 2, caption: "AI understanding feelings.", photo: "/gallery/m2.jpeg" },
-    { id: 3, caption: "📂 ProfileX - Smart Data Profiler", photo: "/gallery/profilex.jpeg" },
-    { id: 4, caption: "ProfileX Analysis", photo: "/gallery/profilex2.jpeg" },
-    { id: 5, caption: "ProfileX Stats", photo: "/gallery/profilex3.jpeg" },
-    { id: 6, caption: "ProfileX Details", photo: "/gallery/profilex4.jpeg" },
+    { id: 1, caption: "MedRep Pro – ID Portal & Smart Identity Card Generator 🪪", photo: "/gallery/medrep_idportal.png" },
+    { id: 2, caption: "MedRep Pro – Live MR Tracking with Real-Time Map 📍", photo: "/gallery/medrep_tracking.png" },
+    { id: 3, caption: "M.A.S.S – Multi-Agent Smart System | Face Recognition Mode 🤖", photo: "/gallery/mass_ui1.png" },
+    { id: 4, caption: "M.A.S.S – Voice Core Dashboard | AI Assistant Interface 🎙️", photo: "/gallery/mass_ui2.png" },
   ],
   achievements: [
     { id: 1, caption: "National level Hackathon 🏆!", photo: "/certs/adira.png" },
