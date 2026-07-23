@@ -1,0 +1,202 @@
+/* ⚡ Skills Section Styling */
+.skills-container {
+  min-height: 100vh;
+  padding: 4rem 2rem;
+  background: #000;
+  text-align: center;
+}
+
+.skills-header h2 {
+  font-size: 3rem;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+}
+
+.skills-underline {
+  width: 80px;
+  height: 3px;
+  background: var(--accent);
+  margin: 0 auto 1.5rem;
+}
+
+.skills-header p {
+  color: #888;
+  font-size: 1.1rem;
+  max-width: 700px;
+  margin: 0 auto 3rem;
+}
+
+/* 🎨 Skills Stage Styling */
+.skills-stage {
+  width: 100%;
+  max-width: 1100px;
+  height: 550px;
+  margin: 0 auto 4rem;
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.skill-circle {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 180, 255, 0.05);
+  border: 1px solid rgba(0, 180, 255, 0.2);
+  backdrop-filter: blur(5px);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.skill-circle img {
+  width: 45px;
+  height: 45px;
+  margin-bottom: 5px;
+  filter: drop-shadow(0 0 5px var(--accent));
+}
+
+.skill-circle span {
+  font-size: 0.75rem;
+  color: #eee;
+  font-weight: 500;
+}
+
+/* 📊 Skills Table Styling */
+.skills-table {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.skills-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+
+.skill-box {
+  background: rgba(255, 255, 255, 0.03);
+  padding: 1.5rem;
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  text-align: left;
+}
+
+.skill-box h3 {
+  color: var(--accent);
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid rgba(0, 180, 255, 0.2);
+  padding-bottom: 0.5rem;
+}
+
+.skill-box ul {
+  list-style: none;
+  padding: 0;
+}
+
+.skill-box li {
+  color: #bbb;
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.skill-box li::before {
+  content: "▹";
+  color: var(--accent);
+}
+
+/* 📱 Responsive Design */
+
+/* Tablet & Smaller Laptops */
+@media (max-width: 1024px) {
+  .skills-stage {
+    height: 450px;
+  }
+}
+
+/* Tablets (Portrait) */
+@media (max-width: 768px) {
+  .skills-container {
+    padding: 3rem 1.5rem;
+  }
+  .skills-header h2 {
+    font-size: 2.5rem;
+  }
+  .skills-stage {
+    height: 380px;
+    margin-bottom: 3rem;
+  }
+  .skill-circle {
+    width: 90px;
+    height: 90px;
+  }
+  .skill-circle img {
+    width: 35px;
+    height: 35px;
+  }
+  .skill-circle span {
+    font-size: 0.7rem;
+  }
+  .skills-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Mobile Devices */
+@media (max-width: 600px) {
+  .skills-container {
+    padding: 2.5rem 1rem;
+  }
+  .skills-header h2 {
+    font-size: 2rem;
+  }
+  .skills-header p {
+    font-size: 0.95rem;
+    margin-bottom: 2rem;
+  }
+  .skills-stage {
+    height: 300px;
+  }
+  .skill-circle {
+    width: 70px;
+    height: 70px;
+  }
+  .skill-circle img {
+    width: 28px;
+    height: 28px;
+  }
+  .skill-circle span {
+    font-size: 0.65rem;
+  }
+}
+
+/* Extra Small Phones */
+@media (max-width: 400px) {
+  .skills-stage {
+    height: 250px;
+  }
+  .skill-circle {
+    width: 60px;
+    height: 60px;
+  }
+  .skill-circle img {
+    width: 24px;
+    height: 24px;
+  }
+  .skill-circle span {
+    font-size: 0.6rem;
+  }
+}
