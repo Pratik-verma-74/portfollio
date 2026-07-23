@@ -114,7 +114,7 @@ const DUMMY_PROJECTS = [
     placeholder: '🎓',
     placeholderBg: 'linear-gradient(135deg, #0d1b2a, #1a3550)',
     tech: ['HTML', 'CSS', 'JavaScript', 'SUPABASE'],
-    live: 'https://qphub4u.netlify.app',
+    live: 'https://qphub4u.netlify.app/index.html',
     code: 'https://github.com/Pratik-verma-74/QPHUB/blob/main/index.html',
     isDemo: false,
   },
