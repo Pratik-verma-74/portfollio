@@ -85,7 +85,7 @@ const ORIGINAL_PROJECTS = [
     desc: 'A modern and responsive portfolio built with React and Framer Motion, showcasing projects, skills, and achievements with smooth animations and interactive UI.',
     ss: '/portfolio.jpg',
     tech: ['React', 'Framer Motion', 'Tailwind CSS'],
-    live: 'https://portfollio-lime-zeta.vercel.app/',
+    live: 'https://pratikverma74.vercel.app/',
     code: '#',
   },
   {
