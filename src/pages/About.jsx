@@ -7,10 +7,10 @@ import "../CSS/About.css";
 const EDU = [
   {
     icon: <FaUniversity size={34} color="var(--accent)" />,
-    degree: "B.C.A — Bachelor of Computer Application",
-    school: "B.N.M.U (Bhupendra Narayan Mandal University) — Madhepura, Bihar",
-    detail1: "3rd Year (Pursuing) | GPA: 8.5",
-    detail2: "2022 – 2026",
+    degree: "M.C.A — Master of Computer Application",
+    school: "Central University Amarkantk",
+    detail1: "1st Year (Pursuing) ",
+    detail2: "2026 – 2028",
   },
   {
     icon: <FaGraduationCap size={32} color="var(--accent)" />,
