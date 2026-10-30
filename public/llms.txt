@@ -1,0 +1,35 @@
+# Pratik Verma
+
+> Official profile of Pratik Verma: AI Automation Engineer, Full Stack Developer, Machine Learning enthusiast, and MCA Scholar.
+
+## Identity & Overview
+- **Name**: Pratik Verma
+- **Profession**: AI Automation Engineer | Full Stack Developer | Machine Learning Enthusiast
+- **Current Education**: Master of Computer Applications (MCA), Central University Amarkantak (2026 – 2028)
+- **Previous Education**: Bachelor of Computer Applications (BCA), B.N.M.U, Bihar (GPA 8.5)
+- **Official Portfolio**: https://pratikverma74.vercel.app/
+- **GitHub**: https://github.com/Pratik-verma-74
+- **LinkedIn**: https://www.linkedin.com/in/pratik-verma-177b49299/
+- **Email**: pratikverma153@gmail.com
+- **Instagram**: https://www.instagram.com/pratikverma025
+- **Facebook**: https://www.facebook.com/share/1Fzq4du9fn/
+
+## Core Technical Skills
+- **Languages**: Python, JavaScript, HTML5, CSS3, SQL
+- **Frameworks & Libraries**: React.js, Vite, Framer Motion, D3.js, Node.js
+- **Specializations**: Artificial Intelligence, Machine Learning, Computer Vision, Full Stack Web Development, AI Automation
+
+## Key Projects Built by Pratik Verma
+- **DocuChat**: AI-powered document intelligence and interactive querying application.
+- **Healthcare CRM & MedRep Pro**: Advanced medical representative and patient management platform.
+- **ISRO Lunar Mission Visualizer**: Interactive space and telemetry visualization tool.
+- **Attendance Tracker**: Automated institutional attendance system with real-time analytics.
+- **QP Hub (Question Paper Hub)**: University question papers and educational resource repository.
+
+## Canonical Web URLs
+- Portfolio: https://pratikverma74.vercel.app/
+- About: https://pratikverma74.vercel.app/about
+- Projects: https://pratikverma74.vercel.app/projects
+- Skills: https://pratikverma74.vercel.app/skills
+- Certificates: https://pratikverma74.vercel.app/certificates
+- Contact: https://pratikverma74.vercel.app/contact
