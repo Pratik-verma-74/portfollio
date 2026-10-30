@@ -33,3 +33,4 @@
 - Skills: https://pratikverma74.vercel.app/skills
 - Certificates: https://pratikverma74.vercel.app/certificates
 - Contact: https://pratikverma74.vercel.app/contact
+
